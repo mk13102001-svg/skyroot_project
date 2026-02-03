@@ -4,19 +4,6 @@ using namespace std;
 
 const int N = 6;
 
-/*
-    State vector:
-    x[0] = y1
-    x[1] = y1_dot
-    x[2] = y2
-    x[3] = y2_dot
-    x[4] = y3
-    x[5] = y3_dot
-*/
-
-/* ===============================
-   DERIVATIVE FUNCTION (PHYSICS)
-   =============================== */
 void derivatives(double x[], double xdot[])
 {
     // First second-order system
@@ -32,9 +19,6 @@ void derivatives(double x[], double xdot[])
     xdot[5] = -0.8 * x[4] - 0.2 * x[5];
 }
 
-/* ===============================
-   RK4 INTEGRATION STEP
-   =============================== */
 void rk4_step(double x[], double dt)
 {
     double k1[N], k2[N], k3[N], k4[N];
@@ -66,9 +50,6 @@ void rk4_step(double x[], double dt)
     }
 }
 
-/* ===============================
-   MAIN PROGRAM
-   =============================== */
 int main()
 {
     double x[N] = {
@@ -94,8 +75,6 @@ int main()
 
         rk4_step(x, dt);
     }
-
-    //cout<<"helllo world"<<endl;
 
     return 0;
 }
